@@ -1,3 +1,48 @@
+// ========== NAVBAR TOGGLE ==========
+const menuBtnmain = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtnmain.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+
+// ========== CLOSE MENU WHEN LINK CLICK ==========
+document.querySelectorAll(".nav-links li a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
+
+
+// ========== MAKE HEADER CHANGE ON SCROLL ==========
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 80) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+
+// ========== SMOOTH SCROLL (OPTIONAL) ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+    });
+});
+
+
+
+
+
+
+
 // ===================== FAQ ACCORDION =====================
 const faqItems = document.querySelectorAll(".faq-item h3");
 
